@@ -8,6 +8,7 @@ class Devices {
     getPower() {
         console.log(`Power is ${this.power} W`)
     }
+  
     showKeyProperty() {
         for (let key in this) {
             if (this.hasOwnProperty(key))
@@ -18,16 +19,14 @@ class Devices {
 
 class Computers extends Devices {
     constructor(name, power, display) {
-        this.name = name,
-            this.power = power,
-            this.display = display
+        super(name, power)
+        this.display = display
     }
 }
 
 class Lamps extends Devices {
     constructor(name, power) {
-        this.name = name,
-            this.power = power
+              super(name, power)
     }
     getPower() {
         console.log(`Power is ${this.power} W(Light-emitting diode)`)
@@ -36,8 +35,7 @@ class Lamps extends Devices {
 
 class LampsBattery extends Lamps {
     constructor(name, power, battery) {
-        this.name = name,
-            this.power = power,
+        super(name, power)
             this.battery = battery
     }
 }
